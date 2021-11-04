@@ -11,25 +11,18 @@ $RWD: (
 // 顏色, 使用 (rwd尺寸-)tx-key值 or (rwd尺寸-)bg-key值 or (rwd尺寸-)border-key值
 $colors: (
   'white': #fff,
-  'black': #000,
-  'primary': #ca4f0f,
-  'link': #00408b,
-  'info': #4a90e2,
-  'success': #3db891,
-  'danger': #d0021b,
-  'warning': #f5a623,
-  'cancel': #c4c4c4,
-  'gray-100': #f3f3f3,
-  'gray-200': #e1e1e1,
-  'gray-300': #c8c8c8,
-  'gray-400': #757575
+  'black': #0d0b0c,
+  'pink': #ff1d6c,
+  'yellow': #ffb72c,
+  'green': #007350,
+  'gray': #acacac,
+  'gray-light': #d2d2d2
 );
 
 // 字形大小, 使用 (rwd尺寸-)font-key值
 $font-size: (
-  'xxl': 28px,
-  'xl': 24px,
-  'l': 20px,
+  'xl': 20px,
+  'l': 18px,
   'n': 16px,
   'm': 14px,
   's': 12px
@@ -38,22 +31,17 @@ $font-size: (
 // font-family, 使用 (rwd尺寸-)font-key值
 $font-family: (
   'sans': (
-    'Segoe UI',
-    '微軟正黑體',
+    'Noto Sans TC',
     sans-serif
   ),
-  'serif': (
-    Georgia,
-    'Times New Roman',
-    Times,
-    serif
+  'Roboto': (
+    'Roboto'
   )
 );
 
 // 字形重量, 使用 (rwd尺寸-)weight-key值
 $weights: (
-  's': lighter,
-  'm': normal,
+  'n': normal,
   'l': bold
 );
 

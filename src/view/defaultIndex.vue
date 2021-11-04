@@ -1,7 +1,6 @@
 <template>
   <div>
-    <svg-icon icon-class="Frame 41" />
-    <p class="m-0 tx-primary">{{ demo }}</p>
+    <p>妳好</p>
   </div>
 </template>
 

@@ -2,7 +2,7 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
 import store from './store/index';
-import svgIcon from './components/svg_icon.vue';
+import svgIcon from './components/svgIcon.vue';
 import 'vite-plugin-svg-icons/register';
 import './assets/scss/main.scss';
 

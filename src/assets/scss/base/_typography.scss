@@ -3,14 +3,32 @@
 }
 
 body,
-html {
+html,
+#app {
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  background: #f6f7fb;
+  font-family: map-get($map: $font-family, $key: 'sans');
+  line-height: 21px;
+  overflow-x: hidden;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+}
+
+li {
+  list-style: none;
 }
