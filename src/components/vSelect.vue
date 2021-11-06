@@ -84,6 +84,7 @@ export default defineComponent({
 
   &__option {
     padding-bottom: 16px;
+    max-height: 280px;
     display: none;
     background: #fff;
     border-radius: 0 0 6px 6px;
@@ -91,9 +92,28 @@ export default defineComponent({
     top: 36px;
     left: 0;
     right: 0;
+    overflow-y: auto;
 
     &.show {
       display: block;
+    }
+
+    // 客製化 scrollbar
+    &::-webkit-scrollbar {
+      width: 8px;
+      background: #f5f5f5;
+    }
+
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      background: #f5f5f5;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      background: rgba(78, 77, 77, 0.836);
     }
   }
 
