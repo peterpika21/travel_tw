@@ -11,9 +11,11 @@ html,
 }
 
 #app {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background: #f6f7fb;
   font-family: map-get($map: $font-family, $key: 'sans');
-  line-height: 21px;
   overflow-x: hidden;
 }
 
@@ -26,6 +28,7 @@ a {
 }
 
 ul {
+  padding: 0;
   margin: 0;
 }
 

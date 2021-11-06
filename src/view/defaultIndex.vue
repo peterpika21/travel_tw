@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>妳好</p>
+    <p v-for="item in 40">內容</p>
   </div>
 </template>
 

@@ -1,0 +1,90 @@
+[
+  {
+    "id": "Taipei",
+    "label": "臺北市"
+  },
+  {
+    "id": "NewTaipei",
+    "label": "新北市"
+  },
+  {
+    "id": "Taoyuan",
+    "label": "桃園市"
+  },
+  {
+    "id": "Taichung",
+    "label": "臺中市"
+  },
+  {
+    "id": "Tainan",
+    "label": "臺南市"
+  },
+  {
+    "id": "Kaohsiung",
+    "label": "高雄市"
+  },
+  {
+    "id": "Keelung",
+    "label": "基隆市"
+  },
+  {
+    "id": "Hsinchu",
+    "label": "新竹市"
+  },
+  {
+    "id": "HsinchuCounty",
+    "label": "新竹縣"
+  },
+  {
+    "id": "MiaoliCounty",
+    "label": "苗栗縣"
+  },
+  {
+    "id": "ChanghuaCounty",
+    "label": "彰化縣"
+  },
+  {
+    "id": "NantouCounty",
+    "label": "南投縣"
+  },
+  {
+    "id": "YunlinCounty",
+    "label": "雲林縣"
+  },
+  {
+    "id": "ChiayiCounty",
+    "label": "嘉義縣"
+  },
+  {
+    "id": "Chiayi",
+    "label": "嘉義市"
+  },
+  {
+    "id": "PingtungCounty",
+    "label": "屏東縣"
+  },
+  {
+    "id": "YilanCounty",
+    "label": "宜蘭縣"
+  },
+  {
+    "id": "HualienCounty",
+    "label": "花蓮縣"
+  },
+  {
+    "id": "TaitungCounty",
+    "label": "臺東縣"
+  },
+  {
+    "id": "KinmenCounty",
+    "label": "金門縣"
+  },
+  {
+    "id": "PenghuCounty",
+    "label": "澎湖縣"
+  },
+  {
+    "id": "LienchiangCounty",
+    "label": "連江縣"
+  }
+]
