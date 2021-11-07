@@ -1,11 +1,11 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import defaultIndex from '@/view/defaultIndex.vue';
+import vIndex from '@/view/vIndex.vue';
 
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: defaultIndex
+    component: vIndex
   }
   // {
   //   path: '/about',

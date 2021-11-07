@@ -12,6 +12,14 @@
     "label": "桃園市"
   },
   {
+    "id": "Hsinchu",
+    "label": "新竹市"
+  },
+  {
+    "id": "HsinchuCounty",
+    "label": "新竹縣"
+  },
+  {
     "id": "Taichung",
     "label": "臺中市"
   },
@@ -26,14 +34,6 @@
   {
     "id": "Keelung",
     "label": "基隆市"
-  },
-  {
-    "id": "Hsinchu",
-    "label": "新竹市"
-  },
-  {
-    "id": "HsinchuCounty",
-    "label": "新竹縣"
   },
   {
     "id": "MiaoliCounty",

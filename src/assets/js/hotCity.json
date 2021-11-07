@@ -1,0 +1,37 @@
+[
+  {
+    "id": "Taipei",
+    "label": "臺北市",
+    "img": "1.png"
+  },
+  {
+    "id": "NewTaipei",
+    "label": "新北市",
+    "img": "2.png"
+  },
+  {
+    "id": "Taoyuan",
+    "label": "桃園市",
+    "img": "3.png"
+  },
+  {
+    "id": "Hsinchu",
+    "label": "新竹市",
+    "img": "4.png"
+  },
+  {
+    "id": "Taichung",
+    "label": "臺中",
+    "img": "5.png"
+  },
+  {
+    "id": "NantouCounty",
+    "label": "南投",
+    "img": "6.png"
+  },
+  {
+    "id": "Chiayi",
+    "label": "嘉義",
+    "img": "7.png"
+  }
+]

@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header h-shadow--word">
     <nav class="nav">
       <svg-icon icon-class="logo" className="nav__logo" />
 
@@ -132,7 +132,7 @@ export default defineComponent({
 .search {
   padding: 130px 0;
   margin: 0 30px 30px;
-  background-image: url('@/assets/image/bg1.png');
+  background-image: url('public/image/bg1.png');
   background-size: cover;
   background-repeat: no-repeat;
 
