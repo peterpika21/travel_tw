@@ -7,14 +7,14 @@
 
     <div class="wrap">
       <div
-        v-for="(item, index) in city"
+        v-for="(item, index) in state.city"
         class="box h-shadow--word"
         :class="{ 'box--half': index !== 0 && index % 3 !== 0 }"
         :key="index"
       >
         <div class="relative">
           <div class="box__opacity"></div>
-          <img :src="`public/image/${item.img}`" alt="no" />
+          <img :src="`/image/${item.img}`" alt="no" />
           <div class="box__container">
             <svg-icon icon-class="map_white" className="box__icon" />
             <span>{{ item.label }}</span>
@@ -32,9 +32,9 @@ import { defineComponent, ref, reactive } from 'vue';
 
 export default defineComponent({
   setup() {
-    const city = reactive(hotCtiy);
+    const state = reactive({ city: hotCtiy });
 
-    return { city };
+    return { state };
   }
 });
 </script>
@@ -47,6 +47,7 @@ export default defineComponent({
   align-items: center;
 
   &--tx {
+    margin-left: 8px;
     font-size: 20px;
     font-weight: 400;
   }

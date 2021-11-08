@@ -4,7 +4,7 @@
       <svg-icon icon-class="logo" className="nav__logo" />
 
       <ul class="nav__link">
-        <li v-for="nav in navData" :key="nav.icon">
+        <li v-for="nav in state.navData" :key="nav.icon">
           <a class="d-flex align-items-end" :href="nav.href">
             <svg-icon :icon-class="nav.icon" className="nav__icon" />
             <div>
@@ -34,14 +34,14 @@
         <div class="d-flex justify-content-between">
           <v-select
             v-model="selectType"
-            :option="typeData"
+            :option="state.typeData"
             placeholder="類別"
             class="mr-2 flex-1"
           ></v-select>
 
           <v-select
             v-model="selectCity"
-            :option="cityData"
+            :option="state.cityData"
             placeholder="不分縣市"
             class="flex-1"
           ></v-select>
@@ -62,34 +62,34 @@ export default defineComponent({
     let selectType = ref('');
     let selectCity = ref('');
 
-    const navData = reactive([
-      { icon: 'Frame 41', content: '台灣景點', href: '/', color: 'pink' },
-      { icon: 'Frame 42', content: '美食住宿', href: '/', color: 'yellow' },
-      { icon: 'Frame 43', content: '景點交通', href: '/', color: 'green' }
-    ]);
+    let state = reactive({
+      navData: [
+        { icon: 'Frame 41', content: '台灣景點', href: '/', color: 'pink' },
+        { icon: 'Frame 42', content: '美食住宿', href: '/', color: 'yellow' },
+        { icon: 'Frame 43', content: '景點交通', href: '/', color: 'green' }
+      ],
+      typeData: [
+        {
+          id: 'ScenicSpot',
+          label: '景點'
+        },
+        {
+          id: 'Activity',
+          label: '活動'
+        },
+        {
+          id: 'Hotel',
+          label: '住宿'
+        },
+        {
+          id: 'Restaurant',
+          label: '美食'
+        }
+      ],
+      cityData: cityInfo
+    });
 
-    const typeData = reactive([
-      {
-        id: 'ScenicSpot',
-        label: '景點'
-      },
-      {
-        id: 'Activity',
-        label: '活動'
-      },
-      {
-        id: 'Hotel',
-        label: '住宿'
-      },
-      {
-        id: 'Restaurant',
-        label: '美食'
-      }
-    ]);
-
-    const cityData = reactive(cityInfo);
-
-    return { navData, selectType, selectCity, typeData, cityData };
+    return { state, selectType, selectCity };
   }
 });
 </script>
@@ -132,7 +132,7 @@ export default defineComponent({
 .search {
   padding: 130px 0;
   margin: 0 30px 30px;
-  background-image: url('public/image/bg1.png');
+  background-image: url('image/bg1.png');
   background-size: cover;
   background-repeat: no-repeat;
 

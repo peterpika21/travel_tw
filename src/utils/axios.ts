@@ -1,11 +1,16 @@
 import Axios from 'axios';
 
-const baseURL = 'https://127.0.0.1';
+// 端口
+const baseURL = 'https://ptx.transportdata.tw/MOTC/';
 
 const axios = Axios.create({
   baseURL,
   timeout: 20000 // 請求超時 20s
 });
+
+// header設定
+// axios.defaults.headers.common['Authorization'] = 'YUOR_AUTH_TOKEN';
+// axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 // 前置攔截器（發起請求之前的攔截）
 axios.interceptors.request.use(
