@@ -65,7 +65,6 @@ export default defineComponent({
         })
         .then(function (res) {
           state.arrData = res.data.filter((e: unknown, i: number) => i < 4);
-          console.log(state.arrData);
         });
     };
 
