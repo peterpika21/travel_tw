@@ -42,6 +42,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .title {
   margin: 85px auto 0 auto;
+  padding: 0 4px;
   max-width: 1060px;
   display: flex;
   align-items: center;
@@ -59,7 +60,8 @@ export default defineComponent({
 }
 
 .wrap {
-  margin: 0 auto;
+  margin: 0 auto 60px auto;
+  padding: 0 4px;
   max-width: 1060px;
   height: 250px;
   display: flex;

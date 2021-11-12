@@ -5,31 +5,29 @@
       <h2 class="title--tx">熱門活動</h2>
     </div>
 
-    <div class="wrap">
-      <div
-        v-for="item in state.arrData"
-        :key="item.ID"
-        class="box h-shadow--word"
-      >
-        <div class="box__container">
-          <img
-            :src="item.Picture.PictureUrl1"
-            :alt="item.Picture.PictureDescription1"
-            loading="lazy"
-            class="box__img"
-          />
-          <div class="box__content">
-            <p>{{ item.Name }}</p>
-            <p class="box__content--info">{{ item.Description }}</p>
-            <div class="d-flex align-items-center">
-              <svg-icon icon-class="map_pink" className="title__icon" />
-              <p class="ml-3 mr-7 font-m">{{ item.Location }}</p>
-              <button class="box__btn">活動詳情</button>
+    <ul class="row">
+      <li class="col" v-for="item in state.arrData" :key="item.ID">
+        <div class="item">
+          <div class="item__container">
+            <img
+              :src="item.Picture.PictureUrl1"
+              :alt="item.Picture.PictureDescription1"
+              loading="lazy"
+              class="item__img"
+            />
+            <div class="item__content">
+              <p>{{ item.Name }}</p>
+              <p class="item__content--info">{{ item.Description }}</p>
+              <div class="d-flex align-items-center">
+                <svg-icon icon-class="map_pink" className="title__icon" />
+                <p class="ml-3 mr-7 font-m">{{ item.Location }}</p>
+                <button class="item__btn">活動詳情</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </li>
+    </ul>
   </section>
 </template>
 
@@ -77,7 +75,8 @@ export default defineComponent({
 @import '@/assets/scss/helpers/_mixin';
 @import '@/assets/scss/helpers/_variables';
 .title {
-  margin: 85px auto 0 auto;
+  margin: 0 auto;
+  padding: 0 4px;
   max-width: 1060px;
   display: flex;
   align-items: center;
@@ -94,23 +93,42 @@ export default defineComponent({
   }
 }
 
-.wrap {
-  margin: 0 auto;
+.row {
+  margin: 0 auto 20px auto;
+  padding: 4px;
   max-width: 1060px;
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
 }
 
-.box {
-  width: 49%;
-  padding: 16px;
+.col {
+  width: 50%;
   margin-bottom: 48px;
-  background: #ffffff;
 
-  &:nth-child(2n) {
-    margin-left: 1%;
+  &:nth-child(2n + 1) {
+    padding-right: 10px;
   }
+
+  &:nth-child(2n + 2) {
+    padding-left: 10px;
+  }
+
+  @include breakpoint('md') {
+    width: 100%;
+
+    &:nth-child(2n + 1) {
+      padding-right: 0;
+    }
+
+    &:nth-child(2n + 2) {
+      padding-left: 0;
+    }
+  }
+}
+
+.item {
+  padding: 16px;
+  background: #ffffff;
 
   &__container {
     display: flex;

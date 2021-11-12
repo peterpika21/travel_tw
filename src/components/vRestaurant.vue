@@ -5,30 +5,28 @@
       <h2 class="title--tx">熱門餐飲</h2>
     </div>
 
-    <div class="wrap">
-      <div
-        v-for="item in state.arrData"
-        :key="item.ID"
-        class="box h-shadow--word"
-      >
-        <div>
-          <img
-            :src="item.Picture.PictureUrl1"
-            :alt="item.Picture.PictureDescription1"
-            loading="lazy"
-            class="box__img"
-          />
+    <ul class="row">
+      <li class="col" v-for="item in state.arrData" :key="item.ID">
+        <div class="item">
           <div>
-            <p class="box__name">{{ item.Name }}</p>
+            <img
+              :src="item.Picture.PictureUrl1"
+              :alt="item.Picture.PictureDescription1"
+              loading="lazy"
+              class="item__img"
+            />
+            <div>
+              <p class="item__name">{{ item.Name }}</p>
 
-            <div class="box__address">
-              <svg-icon icon-class="map_pink" className="box__icon" />
-              <p class="box__address--tx">{{ item.Address }}</p>
+              <div class="item__address">
+                <svg-icon icon-class="map_pink" className="item__icon" />
+                <p class="item__address--tx">{{ item.Address }}</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </li>
+    </ul>
   </section>
 </template>
 
@@ -50,7 +48,6 @@ interface IAuth {
 export default defineComponent({
   setup() {
     let state: { arrData: Array<IAuth> } = reactive({ arrData: [] });
-
     onMounted(() => {
       getActivity();
     });
@@ -76,7 +73,8 @@ export default defineComponent({
 @import '@/assets/scss/helpers/_mixin';
 @import '@/assets/scss/helpers/_variables';
 .title {
-  margin: 85px auto 0 auto;
+  padding: 0 4px;
+  margin: 0 auto;
   max-width: 1060px;
   display: flex;
   align-items: center;
@@ -93,18 +91,29 @@ export default defineComponent({
   }
 }
 
-.wrap {
-  margin: 0 auto;
+.row {
+  margin: 0 auto 60px;
   max-width: 1060px;
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
 }
 
-.box {
-  width: 205px;
+.col {
+  width: 20%;
+  padding: 4px;
+  margin-bottom: 28px;
+
+  @include breakpoint('md') {
+    width: 25%;
+  }
+
+  @include breakpoint('xs') {
+    width: 50%;
+  }
+}
+
+.item {
   padding: 12px;
-  margin-bottom: 45px;
   background: #ffffff;
 
   &__img {
@@ -121,6 +130,7 @@ export default defineComponent({
 
   &__address {
     display: flex;
+    height: 34px;
 
     &--tx {
       margin-left: 8px;
