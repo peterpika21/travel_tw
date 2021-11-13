@@ -7,7 +7,7 @@
 
     <ul class="row">
       <li class="col" v-for="item in state.arrData" :key="item.ID">
-        <div class="item">
+        <div class="item h-shadow--word">
           <div class="item__container">
             <img
               :src="item.Picture.PictureUrl1"
@@ -21,7 +21,9 @@
               <div class="d-flex align-items-center">
                 <svg-icon icon-class="map_pink" className="title__icon" />
                 <p class="ml-3 mr-7 font-m">{{ item.Location }}</p>
-                <button class="item__btn">活動詳情</button>
+                <button @click="openModal(item)" class="item__btn">
+                  活動詳情
+                </button>
               </div>
             </div>
           </div>
@@ -29,10 +31,52 @@
       </li>
     </ul>
   </section>
+
+  <el-dialog
+    v-model="showModal"
+    width="60%"
+    :show-close="false"
+    custom-class="modal"
+  >
+    <template #title>
+      <img
+        class="modal__img"
+        :src="state.active.Picture.PictureUrl1"
+        :alt="state.active.Picture.PictureDescription1"
+      />
+      <svg-icon
+        icon-class="modal_close"
+        className="modal__icon"
+        @click="showModal = false"
+      />
+    </template>
+
+    <div class="modal__body">
+      <p class="font-l tx-black">{{ state.active.Name }}</p>
+      <p class="my-5 font-m tx-black">{{ state.active.Description }}</p>
+    </div>
+
+    <template #footer>
+      <div class="mb-5 d-flex align-items-center">
+        <svg-icon icon-class="clock_pink" className="" />
+        <span class="ml-2 font-m text-ellipse"
+          >{{ state.active.StartTime }}
+          至
+          {{ state.active.EndTime }}
+        </span>
+      </div>
+
+      <div class="d-flex align-items-center">
+        <svg-icon icon-class="map_pink" className="" />
+        <span class="ml-2 font-m text-ellipse">{{ state.active.Address }}</span>
+      </div>
+    </template>
+  </el-dialog>
 </template>
 
 <script lang="ts">
 import axios from '@/utils/axios';
+import dayjs from 'dayjs';
 import { getAuth } from '@/utils/auth';
 import { defineComponent, ref, reactive, onMounted } from 'vue';
 
@@ -41,6 +85,9 @@ interface IAuth {
   Name: string;
   Description: string;
   Location: string;
+  StartTime: string;
+  EndTime: string;
+  Address: string;
   Picture: {
     PictureUrl1: string;
     PictureDescription1: string;
@@ -49,7 +96,23 @@ interface IAuth {
 
 export default defineComponent({
   setup() {
-    let state: { arrData: Array<IAuth> } = reactive({ arrData: [] });
+    const showModal = ref(false);
+    let state: { arrData: Array<IAuth>; active: IAuth } = reactive({
+      arrData: [],
+      active: {
+        ID: '',
+        Name: '',
+        Address: '',
+        Description: '',
+        StartTime: '',
+        EndTime: '',
+        Location: '',
+        Picture: {
+          PictureUrl1: '',
+          PictureDescription1: ''
+        }
+      }
+    });
 
     onMounted(() => {
       getActivity();
@@ -63,10 +126,19 @@ export default defineComponent({
         })
         .then(function (res) {
           state.arrData = res.data.filter((e: unknown, i: number) => i < 4);
+          state.arrData.forEach(e => {
+            e.StartTime = dayjs(e.StartTime).format('YYYY/MM/DD');
+            e.EndTime = dayjs(e.EndTime).format('YYYY/MM/DD');
+          });
         });
     };
 
-    return { state };
+    const openModal = (item: IAuth) => {
+      state.active = item;
+      showModal.value = true;
+    };
+
+    return { state, showModal, openModal };
   }
 });
 </script>
@@ -165,6 +237,21 @@ export default defineComponent({
       line-height: 21px;
       color: map-get($map: $colors, $key: 'gray');
     }
+  }
+}
+
+.modal {
+  &__img {
+    width: 100%;
+  }
+
+  &__icon {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    top: 0;
+    right: -50px;
+    cursor: pointer;
   }
 }
 </style>

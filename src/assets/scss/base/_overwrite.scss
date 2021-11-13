@@ -1,0 +1,17 @@
+.el-overlay {
+  backdrop-filter: blur(28px);
+}
+
+.el-dialog {
+  &__header {
+    padding: 32px;
+  }
+
+  &__body {
+    padding: 12px 32px;
+  }
+
+  &__footer {
+    padding: 8px 32px 32px;
+  }
+}
