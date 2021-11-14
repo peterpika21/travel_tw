@@ -152,7 +152,7 @@ export default defineComponent({
 .search {
   padding: 130px 0;
   margin: 0 30px 30px;
-  background-image: url('image/bg1.png');
+  background-image: url('/bg1.png');
   background-size: cover;
   background-repeat: no-repeat;
 
