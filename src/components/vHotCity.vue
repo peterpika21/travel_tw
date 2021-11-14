@@ -14,7 +14,7 @@
       >
         <div class="relative">
           <div class="box__opacity"></div>
-          <img :src="`/${item.img}`" alt="no" />
+          <img :src="useAssets(item.img)" alt="no" />
           <div class="box__container">
             <svg-icon icon-class="map_white" className="box__icon" />
             <span>{{ item.label }}</span>
@@ -33,7 +33,13 @@ export default defineComponent({
   setup() {
     const state = reactive({ city: hotCtiy });
 
-    return { state };
+    const useAssets = (name: string) => {
+      const pngs = import.meta.globEager('../assets/image/*.png');
+
+      return pngs[`../assets/image/${name}`].default;
+    };
+
+    return { state, useAssets };
   }
 });
 </script>

@@ -13,7 +13,7 @@ export default defineConfig({
       symbolId: 'icon-[dir]-[name]'
     })
   ],
-  base: '/travel_tw/', // 對應github倉庫名稱
+  base: process.env.BASE, // 對應github倉庫名稱
   resolve: {
     alias: {
       '@': `${path.resolve(__dirname, 'src')}/`
