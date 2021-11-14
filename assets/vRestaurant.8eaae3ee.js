@@ -1,0 +1,1 @@
+import{_ as t,v as n}from"./index.e534c394.js";import{d as o,b as a,z as s,o as r}from"./vendor.002120ab.js";const c=o({components:{vRestaurant:n}});function p(_,u,m,v,d,f){const e=a("vRestaurant",!0);return r(),s(e)}var $=t(c,[["render",p]]);export{$ as default};
