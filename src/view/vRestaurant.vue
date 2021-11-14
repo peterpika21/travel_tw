@@ -1,14 +1,14 @@
 <template>
-  <vRestaurant></vRestaurant>
+  <vHotFood></vHotFood>
 </template>
 
 <script lang="ts">
-import vRestaurant from '@/components/vRestaurant.vue';
+import vHotFood from '@/components/vHotFood.vue';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
   components: {
-    vRestaurant
+    vHotFood
   }
 });
 </script>
