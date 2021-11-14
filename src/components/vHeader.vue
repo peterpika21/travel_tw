@@ -1,11 +1,15 @@
 <template>
   <header class="header h-shadow--word">
     <nav class="nav">
-      <svg-icon icon-class="logo" className="nav__logo" />
+      <svg-icon icon-class="logo" className="nav__logo" @click="route('/')" />
 
       <ul class="nav__link">
         <li v-for="nav in state.navData" :key="nav.icon">
-          <a class="d-flex align-items-end" :href="nav.href">
+          <a
+            class="d-flex align-items-end"
+            href="javascript:void(0)"
+            @click="route(nav.href)"
+          >
             <svg-icon :icon-class="nav.icon" className="nav__icon" />
             <div>
               <span :class="`ml-1 font-m tx-${nav.color}`">
@@ -54,19 +58,30 @@
 </template>
 
 <script lang="ts">
+import { useRouter } from 'vue-router';
 import { defineComponent, reactive, ref } from '@vue/runtime-core';
 import cityInfo from '@/assets/js/cityData.json';
 
 export default defineComponent({
   setup() {
+    const router = useRouter();
     let selectType = ref('');
     let selectCity = ref('');
-
     let state = reactive({
       navData: [
         { icon: 'Frame 41', content: '台灣景點', href: '/', color: 'pink' },
-        { icon: 'Frame 42', content: '美食住宿', href: '/', color: 'yellow' },
-        { icon: 'Frame 43', content: '景點交通', href: '/', color: 'green' }
+        {
+          icon: 'Frame 42',
+          content: '美食住宿',
+          href: '/restaurant',
+          color: 'yellow'
+        },
+        {
+          icon: 'Frame 43',
+          content: '景點交通',
+          href: '/transportation',
+          color: 'green'
+        }
       ],
       typeData: [
         {
@@ -89,7 +104,11 @@ export default defineComponent({
       cityData: cityInfo
     });
 
-    return { state, selectType, selectCity };
+    const route = (url: string) => {
+      router.push({ path: url });
+    };
+
+    return { state, selectType, selectCity, route };
   }
 });
 </script>
@@ -109,6 +128,7 @@ export default defineComponent({
   &__logo {
     width: 99px;
     height: 57px;
+    cursor: pointer;
   }
 
   &__link {

@@ -6,12 +6,12 @@ const routes = [
     path: '/',
     name: 'home',
     component: vIndex
+  },
+  {
+    path: '/restaurant',
+    name: 'restaurant',
+    component: () => import('@/view/vRestaurant.vue')
   }
-  // {
-  //   path: '/about',
-  //   name: 'frontDesk',
-  //   component: () => import('@/components/About.vue')
-  // }
 ];
 
 const router = createRouter({
