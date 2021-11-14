@@ -27,8 +27,7 @@
 
 <script lang="ts">
 import hotCtiy from '@/assets/js/hotCity.json';
-import axios from '@/utils/axios';
-import { defineComponent, ref, reactive } from 'vue';
+import { defineComponent, reactive } from 'vue';
 
 export default defineComponent({
   setup() {
